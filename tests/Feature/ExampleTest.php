@@ -7,15 +7,13 @@ use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testBasicTest()
+    use RefreshDatabase;
+    
+    public function testIndex()
     {
-        $response = $this->get('/');
+        $response = $this->get(route('articles.index'));
 
-        $response->assertStatus(200);
+        $response->assertStatus(200)
+            ->assertViewIs('articles.index');
     }
 }
