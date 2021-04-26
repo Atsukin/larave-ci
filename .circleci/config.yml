@@ -75,8 +75,6 @@ jobs:
           command: zip -ryq laravel-ci.zip .
       - aws-cli/install
       - run:
-          name: upload artifacts to s3
-      - run:
           name: deploy to prod
           command: |
             aws deploy create-deployment \
